@@ -32,6 +32,8 @@ private:
     Window mWindow;
     sf::Clock mClock;
     float mElapsed;
+    int mHiScore;
+    sf::RectangleShape mBackground;
 
     World mWorld;
     Snake mSnake;

@@ -1,14 +1,17 @@
 #include "Game.h"
 
-Game::Game() : mWindow("Snake", sf::Vector2u(800, 600)),
+Game::Game() : mWindow("Snake", sf::Vector2u(720, 1280)),
                mSnake(mWorld.getBlockSize(), &mTextbox),
-               mWorld(sf::Vector2u(800, 600))
+               mWorld(sf::Vector2u(720, 720))
 {
     mClock.restart();
     srand(time(NULL));
+    mHiScore = 0;
+    mBackground.setSize(sf::Vector2f(720, 1280 - 720));
+    mBackground.setFillColor(sf::Color::Black);
+    mBackground.setPosition(sf::Vector2f(0, 720));
 
-    mTextbox.setup(5, 14, 350, sf::Vector2f(225, 50));
-    mTextbox.add("Seeded random number generator with: " + std::to_string(time(NULL)));
+    mTextbox.setup(5, 48, 350, sf::Vector2f(32, 720));
     mElapsed = 0.0f;
 }
 
@@ -59,7 +62,13 @@ void Game::update()
 
         if (mSnake.hasLost())
         {
-            mTextbox.add("GAME OVER. Your score: " + std::to_string(mSnake.getScore()));
+            if (mSnake.getScore() > mHiScore)
+            {
+                mHiScore = mSnake.getScore();
+            }
+            mTextbox.clear();
+            mTextbox.add("> GAME OVER. Score: " + std::to_string(mSnake.getScore()));
+            mTextbox.add("> Hi: " + std::to_string(mHiScore));            
             mSnake.reset();
         }
     }
@@ -71,6 +80,7 @@ void Game::render()
 
     mWorld.render(*mWindow.getRenderWindow());
     mSnake.render(*mWindow.getRenderWindow());
+    mWindow.draw(mBackground);
     mTextbox.render(*mWindow.getRenderWindow());
 
     mWindow.endDraw();

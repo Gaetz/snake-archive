@@ -42,7 +42,8 @@ sf::Vector2i Snake::getPosition()
 void Snake::increaseScore()
 {
     mScore += 10;
-    mLog->add("You ate an apple. Score: " + std::to_string(mScore));
+    mLog->clear();
+    mLog->add("> Score: " + std::to_string(mScore));
 }
 
 Direction Snake::getPhysicalDirection()
