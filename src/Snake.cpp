@@ -197,12 +197,12 @@ void Snake::render(sf::RenderWindow &window)
 
     // Draw head
     auto head = mSnakeBody.begin();
-    mBodyRect.setFillColor(sf::Color::Yellow);
+    mBodyRect.setFillColor(sf::Color::Black);
     mBodyRect.setPosition(head->position.x * mSize, head->position.y * mSize);
     window.draw(mBodyRect);
 
     // Draw body
-    mBodyRect.setFillColor(sf::Color::Green);
+    mBodyRect.setFillColor(sf::Color(80, 120, 80));
     for (auto itr = mSnakeBody.begin() + 1; itr != mSnakeBody.end(); ++itr)
     {
         mBodyRect.setPosition(itr->position.x * mSize, itr->position.y * mSize);

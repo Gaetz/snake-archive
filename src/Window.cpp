@@ -71,7 +71,7 @@ void Window::toggleFullscreen()
 
 void Window::beginDraw()
 {
-    mWindow.clear(sf::Color::Black);
+    mWindow.clear(sf::Color(165, 212, 40));
 }
 
 void Window::endDraw()

@@ -2,16 +2,16 @@
 
 World::World(sf::Vector2u windowSize)
 {
-    mBlockSize = 16;
+    mBlockSize = 32;
     mWindowSize = windowSize;
     respawnApple();
-    mAppleShape.setFillColor(sf::Color::Red);
+    mAppleShape.setFillColor(sf::Color(80, 120, 80));
     mAppleShape.setRadius(mBlockSize / 2);
 
     // Draw bounds
     for (int i = 0; i < 4; ++i)
     {
-        mBounds[i].setFillColor(sf::Color(150, 0, 0));
+        mBounds[i].setFillColor(sf::Color::Black);
         if (!((i + 1) % 2))
         {
             mBounds[i].setSize(sf::Vector2f(mWindowSize.x, mBlockSize));
