@@ -4,7 +4,17 @@ Constants *Constants::instance = nullptr;
 
 Constants::Constants()
 {
+	initialize();
+}
 
+void Constants::initialize() {
+	screenWidth = 440;
+	screenHeight = 800;
+	blockSize = 20;
+	textBoxX = 218;
+	charSize = 30;
+	baseSpeed = 15;
+	bonusTime = 20;
 }
 
 Constants * Constants::get()
@@ -43,4 +53,9 @@ const int Constants::getCharSize() const
 const int Constants::getBaseSpeed() const
 {
 	return baseSpeed;
+}
+
+const int Constants::getBonusTime() const
+{
+	return bonusTime;
 }

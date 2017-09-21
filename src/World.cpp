@@ -4,9 +4,8 @@ World::World(sf::Vector2u windowSize)
 {
     mBlockSize = Constants::get()->getBlockSize();
     mWindowSize = windowSize;
-    respawnApple();
-    mAppleShape.setFillColor(sf::Color(80, 120, 80));
-    mAppleShape.setRadius(mBlockSize / 2);
+	mApple = Apple();
+	respawnApple();
 
     // Draw bounds
     for (int i = 0; i < 4; ++i)
@@ -36,18 +35,22 @@ World::~World(){};
 
 int World::getBlockSize() { return mBlockSize; }
 
+void World::reset() {
+	mApple.reset();
+}
+
 void World::respawnApple()
 {
     int maxX = (mWindowSize.x / mBlockSize) - 2;
     int maxY = (mWindowSize.y / mBlockSize) - 2;
-    mItem = sf::Vector2i(rand() % maxX + 1, rand() % maxY + 1);
-    mAppleShape.setPosition(mItem.x * mBlockSize, mItem.y * mBlockSize);
+	mApple.respawn(sf::Vector2i(rand() % maxX + 1, rand() % maxY + 1));
 }
 
 void World::update(Snake &player)
 {
+	mApple.tick(player.getDirection());
     // Apple eating
-    if (player.getPosition() == mItem)
+    if (player.getPosition() == mApple.getPosition())
     {
         player.extend();
         player.increaseScore();
@@ -72,5 +75,5 @@ void World::render(sf::RenderWindow &window)
     {
         window.draw(mBounds[i]);
     }
-    window.draw(mAppleShape);
+    mApple.draw(window);
 }

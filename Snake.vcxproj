@@ -140,6 +140,7 @@ xcopy /y /s "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Apple.cpp" />
     <ClCompile Include="src\Constants.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -149,6 +150,7 @@ xcopy /y /s "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     <ClCompile Include="src\World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Apple.h" />
     <ClInclude Include="src\Constants.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Snake.h" />

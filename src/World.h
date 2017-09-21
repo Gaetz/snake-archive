@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Snake.h"
 #include "Constants.h"
+#include "Apple.h"
 
 class World
 {
@@ -17,13 +18,15 @@ public:
   /// Make an apple appear
   void respawnApple();
 
+  /// Reset world when player lose
+  void reset();
+
   /// Draw world in window
   void render(sf::RenderWindow &window);
 
 private:
   sf::Vector2u mWindowSize;
-  sf::Vector2i mItem; // Apple coordinates
   int mBlockSize;
-  sf::CircleShape mAppleShape;
+  Apple mApple;
   sf::RectangleShape mBounds[4];
 };
