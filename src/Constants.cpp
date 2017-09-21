@@ -14,7 +14,7 @@ void Constants::initialize() {
 	textBoxX = 218;
 	charSize = 30;
 	baseSpeed = 15;
-	bonusTime = 20;
+	bonusTime = 25;
 }
 
 Constants * Constants::get()

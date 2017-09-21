@@ -33,7 +33,7 @@ class Snake
     sf::Vector2i getPosition();
     int getLives();
     int getScore();
-    void increaseScore();
+    void increaseScore(bool bonus);
     bool hasLost();
 
     /// Returns the direciton the snake is facing
@@ -44,6 +44,9 @@ class Snake
 
     /// Invert loss status
     void toggleLose();
+
+	/// Cancel bonus
+	void cancelBonus();
 
     /// Make the snake grow
     void extend();
@@ -90,6 +93,9 @@ class Snake
 
     /// Shape used in rendering
     sf::RectangleShape mBodyRect;
+
+	/// Score multiplier when eating successive bonus apples
+	int mBonusMultiplier;
 
     /// Checking for collisions
     void checkCollision();

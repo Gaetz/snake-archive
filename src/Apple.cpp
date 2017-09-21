@@ -20,14 +20,15 @@ const bool Apple::isBonus() const
 	return mIsBonus;
 }
 
-void Apple::tick(Direction direction)
+void Apple::tick(Snake &player)
 {
-	if (direction != Direction::None) {
+	if (player.getDirection() != Direction::None) {
 		int limit = Constants::get()->getBonusTime();
 		if (mBonusTime <= limit) {
 			++mBonusTime;
 		}
 		else {
+			player.cancelBonus();
 			mIsBonus = false;
 		}
 	}

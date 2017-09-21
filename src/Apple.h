@@ -13,7 +13,7 @@ public:
 
 	void respawn(sf::Vector2i position);
 	void reset();
-	void tick(Direction direction);
+	void tick(Snake &player);
 	void draw(sf::RenderWindow &window);
 
 private:

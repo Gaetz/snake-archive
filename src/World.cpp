@@ -48,12 +48,12 @@ void World::respawnApple()
 
 void World::update(Snake &player)
 {
-	mApple.tick(player.getDirection());
+	mApple.tick(player);
     // Apple eating
     if (player.getPosition() == mApple.getPosition())
     {
         player.extend();
-        player.increaseScore();
+        player.increaseScore(mApple.isBonus());
         respawnApple();
     }
 

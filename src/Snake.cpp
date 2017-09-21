@@ -23,6 +23,7 @@ void Snake::reset()
     mLives = 1;
     mScore = 0;
     mLost = false;
+	mBonusMultiplier = 1;
 }
 
 Direction Snake::getDirection() { return mDir; };
@@ -39,11 +40,25 @@ sf::Vector2i Snake::getPosition()
     return (!mSnakeBody.empty() ? mSnakeBody.front().position : sf::Vector2i(1, 1));
 }
 
-void Snake::increaseScore()
+void Snake::increaseScore(bool bonus)
 {
-    mScore += 10;
+	if (!bonus) {
+		mBonusMultiplier = 1;
+	}
+    mScore += 1 * mBonusMultiplier;
+	if (bonus) {
+		++mBonusMultiplier;
+	}
     mLog->clear();
     mLog->add("> Score: " + std::to_string(mScore));
+	if (mBonusMultiplier > 1) {
+		mLog->add("> Bonus: x" + std::to_string(mBonusMultiplier));
+	}
+}
+
+void Snake::cancelBonus() {
+	mLog->clear();
+	mLog->add("> Score: " + std::to_string(mScore));
 }
 
 Direction Snake::getPhysicalDirection()
