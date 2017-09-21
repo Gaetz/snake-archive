@@ -33,3 +33,13 @@
 
 # Scons
 .sconsign.dblite
+
+# Qt Creator
+*.creator.user
+
+# Visual studio
+.vs/
+x64/
+x86/
+Debug/
+Release/

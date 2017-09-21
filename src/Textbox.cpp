@@ -22,7 +22,7 @@ void Textbox::setup(int visible, int charSize, int width, sf::Vector2f screenPos
     // Offset for content display in window
     sf::Vector2f offset(2.0f, 2.0f);
 
-    mFont.loadFromFile("Famirids..ttf");
+    mFont.loadFromFile("assets/Famirids..ttf");
     mContent.setFont(mFont);
     mContent.setString("");
     mContent.setCharacterSize(charSize);
