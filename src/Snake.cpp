@@ -19,7 +19,7 @@ void Snake::reset()
     mSnakeBody.push_back(SnakeSegment(5, 5));
 
     setDirection(Direction::None); // Start still
-    mSpeed = 15;
+    mSpeed = Constants::get()->getBaseSpeed();
     mLives = 1;
     mScore = 0;
     mLost = false;

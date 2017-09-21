@@ -1,17 +1,19 @@
 #include "Game.h"
 
-Game::Game() : mWindow("Snake", sf::Vector2u(720, 1280)),
+Game::Game() : mWindow("Snake", sf::Vector2u(Constants::get()->getScreenWidth(), Constants::get()->getScreenHeight())),
                mSnake(mWorld.getBlockSize(), &mTextbox),
-               mWorld(sf::Vector2u(720, 720))
+               mWorld(sf::Vector2u(Constants::get()->getScreenWidth(), Constants::get()->getScreenWidth()))
 {
     mClock.restart();
     srand(time(NULL));
     mHiScore = 0;
-    mBackground.setSize(sf::Vector2f(720, 1280 - 720));
+	int screenWidth = Constants::get()->getScreenWidth();
+	int screenHeight = Constants::get()->getScreenHeight();
+    mBackground.setSize(sf::Vector2f(screenWidth, screenHeight - screenWidth));
     mBackground.setFillColor(sf::Color::Black);
-    mBackground.setPosition(sf::Vector2f(0, 720));
+    mBackground.setPosition(sf::Vector2f(0, screenWidth));
 
-    mTextbox.setup(5, 48, 350, sf::Vector2f(32, 720));
+    mTextbox.setup(5, Constants::get()->getCharSize(), Constants::get()->getTextBoxX(), sf::Vector2f(mWorld.getBlockSize(), screenWidth));
     mElapsed = 0.0f;
 }
 

@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "Textbox.h"
+#include "Constants.h"
 
 struct SnakeSegment
 {

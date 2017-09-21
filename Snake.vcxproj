@@ -84,6 +84,10 @@
       <AdditionalLibraryDirectories>D:\Rufflerim\Lab\SFML\SFML-2.4.2-x86\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>shlwapi.lib;sfml-main-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;sfml-window-d.lib;sfml-system-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(OutDir)assets"
+xcopy /y /s "$(ProjectDir)assets" "$(OutDir)assets"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -102,6 +106,10 @@
       <AdditionalLibraryDirectories>D:\Rufflerim\Lab\SFML\SFML-2.4.2-x86\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>shlwapi.lib;sfml-main.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;gdi32.lib;winmm.lib;jpeg.lib;freetype.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(OutDir)assets"
+xcopy /y /s "$(ProjectDir)assets" "$(OutDir)assets"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -124,9 +132,15 @@ xcopy /y /s "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     <Link>
       <AdditionalLibraryDirectories>D:\Rufflerim\Lab\SFML\SFML-2.4.2-x64\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>shlwapi.lib;sfml-main.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;gdi32.lib;winmm.lib;jpeg.lib;freetype.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
     </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(OutDir)assets"
+xcopy /y /s "$(ProjectDir)assets" "$(OutDir)assets"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Constants.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Snake.cpp" />
@@ -135,6 +149,7 @@ xcopy /y /s "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     <ClCompile Include="src\World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Constants.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Snake.h" />
     <ClInclude Include="src\Textbox.h" />

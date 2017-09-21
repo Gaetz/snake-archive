@@ -2,7 +2,7 @@
 
 World::World(sf::Vector2u windowSize)
 {
-    mBlockSize = 32;
+    mBlockSize = Constants::get()->getBlockSize();
     mWindowSize = windowSize;
     respawnApple();
     mAppleShape.setFillColor(sf::Color(80, 120, 80));
