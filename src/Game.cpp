@@ -14,6 +14,9 @@ Game::Game() : mWindow("Snake", sf::Vector2u(Constants::get()->getScreenWidth(),
     mBackground.setFillColor(sf::Color::Black);
     mBackground.setPosition(sf::Vector2f(0, screenWidth));
 	mPointDisplay = PointDisplay();
+	if (!mMusic.openFromFile("assets/sornettes.ogg"))
+		std::cout << "Could not load music: assets/sornettes.ogg" << std::endl;
+	mMusic.play();
 
     mTextbox.setup(5, Constants::get()->getCharSize(), Constants::get()->getTextBoxX(), sf::Vector2f(mWorld.getBlockSize(), screenWidth));
     mElapsed = 0.0f;

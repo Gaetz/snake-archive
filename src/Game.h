@@ -1,4 +1,6 @@
 #pragma once
+#include <SFML/Audio.hpp>
+#include <iostream>
 #include "Window.h"
 #include "World.h"
 #include "Textbox.h"
@@ -34,6 +36,7 @@ private:
     float mElapsed;
     int mHiScore;
     sf::RectangleShape mBackground;
+	sf::Music mMusic;
 
     World mWorld;
     Snake mSnake;
