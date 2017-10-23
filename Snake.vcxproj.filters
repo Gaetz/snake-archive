@@ -39,7 +39,7 @@
     <ClCompile Include="src\Apple.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PointDisplay.cpp">
+    <ClCompile Include="src\PointDisplay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,7 +65,7 @@
     <ClInclude Include="src\Apple.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PointDisplay.h">
+    <ClInclude Include="src\PointDisplay.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

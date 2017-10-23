@@ -1,11 +1,10 @@
 #include "World.h"
 
-World::World(sf::Vector2u windowSize, Snake& player)
+World::World(sf::Vector2u windowSize)
 {
 	mBlockSize = Constants::get()->getBlockSize();
 	mWindowSize = windowSize;
 	mApple = Apple();
-	respawnApple(player);
 
 	// Draw bounds
 	for (int i = 0; i < 4; ++i)

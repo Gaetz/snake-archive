@@ -7,7 +7,7 @@
 class World
 {
 public:
-  World(sf::Vector2u windowSize, Snake& player);
+  World(sf::Vector2u windowSize);
   ~World();
 
   int getBlockSize();

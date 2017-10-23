@@ -2,6 +2,7 @@
 
 Snake::Snake(int blockSize, Textbox *log)
 {
+	mSnakeBody = std::vector<SnakeSegment>();
     mSize = blockSize;
     mLog = log;
     mBodyRect.setSize(sf::Vector2f(mSize - 1, mSize - 1)); // Separate segments with 1 pixel
