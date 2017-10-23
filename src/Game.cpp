@@ -64,7 +64,7 @@ void Game::update()
 
         if (mSnake.hasLost())
         {
-			mWorld.reset();
+			mWorld.reset(mSnake);
             if (mSnake.getScore() > mHiScore)
             {
                 mHiScore = mSnake.getScore();

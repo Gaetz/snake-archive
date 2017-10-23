@@ -35,8 +35,8 @@ World::~World() {};
 
 int World::getBlockSize() { return mBlockSize; }
 
-void World::reset() {
-	mApple.reset();
+void World::reset(Snake& player) {
+	respawnApple(player);
 }
 
 void World::respawnApple(Snake& player)

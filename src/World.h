@@ -19,7 +19,7 @@ public:
   void respawnApple(Snake& player);
 
   /// Reset world when player lose
-  void reset();
+  void reset(Snake& player);
 
   /// Draw world in window
   void render(sf::RenderWindow &window);

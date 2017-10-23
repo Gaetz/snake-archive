@@ -48,11 +48,6 @@ void Apple::respawn(sf::Vector2i position, sf::Vector2i playerPosition)
 		distance + Constants::get()->getBonusDistanceTime();
 }
 
-void Apple::reset() {
-	mIsBonus = true;
-	mBonusTime = 0;
-}
-
 void Apple::draw(sf::RenderWindow &window)
 {
 	if (mIsBonus) {

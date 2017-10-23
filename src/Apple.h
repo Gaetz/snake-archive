@@ -12,7 +12,6 @@ public:
 	const bool isBonus() const;
 
 	void respawn(sf::Vector2i position, sf::Vector2i playerPosition);
-	void reset();
 	void tick(Snake &player);
 	void draw(sf::RenderWindow &window);
 
