@@ -7,7 +7,7 @@
 class World
 {
 public:
-  World(sf::Vector2u windowSize);
+  World(sf::Vector2u windowSize, Snake& player);
   ~World();
 
   int getBlockSize();
@@ -16,7 +16,7 @@ public:
   void update(Snake &player);
 
   /// Make an apple appear
-  void respawnApple();
+  void respawnApple(Snake& player);
 
   /// Reset world when player lose
   void reset();

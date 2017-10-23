@@ -23,8 +23,7 @@ const bool Apple::isBonus() const
 void Apple::tick(Snake &player)
 {
 	if (player.getDirection() != Direction::None) {
-		int limit = Constants::get()->getBonusTime();
-		if (mBonusTime <= limit) {
+		if (mBonusTime <= mTimeLimit) {
 			++mBonusTime;
 		}
 		else {
@@ -34,13 +33,19 @@ void Apple::tick(Snake &player)
 	}
 }
 
-void Apple::respawn(sf::Vector2i position)
+void Apple::respawn(sf::Vector2i position, sf::Vector2i playerPosition)
 {
+	// New position
 	mPosition = position;
 	mBonusShape.setPosition(position.x * mBlockSize, position.y * mBlockSize);
 	mNormalShape.setPosition(position.x * mBlockSize, position.y * mBlockSize);
+	// Bonus time computing
+	int distance = abs(position.x - playerPosition.x) + abs(position.y - playerPosition.y);
 	mIsBonus = true;
 	mBonusTime = 0;
+	mTimeLimit = distance <= 25 ? 
+		Constants::get()->getBonusMinumumTime() : 
+		distance + Constants::get()->getBonusDistanceTime();
 }
 
 void Apple::reset() {

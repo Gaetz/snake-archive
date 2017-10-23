@@ -11,7 +11,7 @@ public:
 	const sf::Vector2i getPosition() const;
 	const bool isBonus() const;
 
-	void respawn(sf::Vector2i position);
+	void respawn(sf::Vector2i position, sf::Vector2i playerPosition);
 	void reset();
 	void tick(Snake &player);
 	void draw(sf::RenderWindow &window);
@@ -23,6 +23,7 @@ private:
 	bool mIsBonus;
 	int mBonusTime;
 	int mBlockSize;
+	int mTimeLimit;
 
 	void drawBonus(sf::RenderWindow &window);
 	void drawNormal(sf::RenderWindow &window);

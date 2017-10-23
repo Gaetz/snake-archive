@@ -2,7 +2,7 @@
 
 Game::Game() : mWindow("Snake", sf::Vector2u(Constants::get()->getScreenWidth(), Constants::get()->getScreenHeight())),
                mSnake(mWorld.getBlockSize(), &mTextbox),
-               mWorld(sf::Vector2u(Constants::get()->getScreenWidth(), Constants::get()->getScreenWidth()))
+               mWorld(sf::Vector2u(Constants::get()->getScreenWidth(), Constants::get()->getScreenWidth()), mSnake)
 {
     mClock.restart();
     srand(time(NULL));

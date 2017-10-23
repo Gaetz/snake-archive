@@ -10,7 +10,8 @@ public:
 	const int getTextBoxX() const;
 	const int getCharSize() const;
 	const int getBaseSpeed() const;
-	const int getBonusTime() const;
+	const int getBonusMinumumTime() const;
+	const int getBonusDistanceTime() const;
 
 private:
 	static Constants *instance;
@@ -22,5 +23,6 @@ private:
 	int textBoxX;
 	int charSize;
 	int baseSpeed;
-	int bonusTime;
+	int bonusMinimumTime;
+	int bonusDistanceTime;
 };

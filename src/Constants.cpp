@@ -14,7 +14,8 @@ void Constants::initialize() {
 	textBoxX = 218;
 	charSize = 30;
 	baseSpeed = 15;
-	bonusTime = 25;
+	bonusMinimumTime = 25;
+	bonusDistanceTime = 10;
 }
 
 Constants * Constants::get()
@@ -55,7 +56,12 @@ const int Constants::getBaseSpeed() const
 	return baseSpeed;
 }
 
-const int Constants::getBonusTime() const
+const int Constants::getBonusMinumumTime() const
 {
-	return bonusTime;
+	return bonusMinimumTime;
+}
+
+const int Constants::getBonusDistanceTime() const
+{
+	return bonusDistanceTime;
 }

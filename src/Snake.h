@@ -27,12 +27,12 @@ class Snake
     Snake(int blockSize, Textbox* log);
     ~Snake();
 
-    Direction getDirection();
-    void setDirection(Direction dir);
-    int getSpeed();
-    sf::Vector2i getPosition();
-    int getLives();
-    int getScore();
+	const Direction getDirection();
+	const void setDirection(Direction dir);
+	const int getSpeed();
+    const sf::Vector2i getPosition();
+	const int getLives();
+	const int getScore();
     void increaseScore(bool bonus);
     bool hasLost();
 

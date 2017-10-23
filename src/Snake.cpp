@@ -26,16 +26,16 @@ void Snake::reset()
 	mBonusMultiplier = 1;
 }
 
-Direction Snake::getDirection() { return mDir; };
-void Snake::setDirection(Direction dir) { mDir = dir; }
-int Snake::getSpeed() { return mSpeed; };
-int Snake::getLives() { return mLives; };
-int Snake::getScore() { return mScore; };
+const Direction Snake::getDirection() { return mDir; };
+const void Snake::setDirection(Direction dir) { mDir = dir; }
+const int Snake::getSpeed() { return mSpeed; };
+const int Snake::getLives() { return mLives; };
+const int Snake::getScore() { return mScore; };
 bool Snake::hasLost() { return mLost; }
 void Snake::lose() { mLost = true; }
 void Snake::toggleLose() { mLost = !mLost; }
 
-sf::Vector2i Snake::getPosition()
+const sf::Vector2i Snake::getPosition()
 {
     return (!mSnakeBody.empty() ? mSnakeBody.front().position : sf::Vector2i(1, 1));
 }
