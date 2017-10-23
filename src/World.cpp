@@ -46,14 +46,14 @@ void World::respawnApple(Snake& player)
 	mApple.respawn(sf::Vector2i(rand() % maxX + 1, rand() % maxY + 1), player.getPosition());
 }
 
-void World::update(Snake &player)
+void World::update(Snake &player, PointDisplay& pointDisplay)
 {
 	mApple.tick(player);
 	// Apple eating
 	if (player.getPosition() == mApple.getPosition())
 	{
 		player.extend();
-		player.increaseScore(mApple.isBonus());
+		player.increaseScore(mApple.isBonus(), pointDisplay);
 		respawnApple(player);
 	}
 

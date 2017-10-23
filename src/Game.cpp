@@ -12,6 +12,7 @@ Game::Game() : mWindow("Snake", sf::Vector2u(Constants::get()->getScreenWidth(),
     mBackground.setSize(sf::Vector2f(screenWidth, screenHeight - screenWidth));
     mBackground.setFillColor(sf::Color::Black);
     mBackground.setPosition(sf::Vector2f(0, screenWidth));
+	mPointDisplay = PointDisplay();
 
     mTextbox.setup(5, Constants::get()->getCharSize(), Constants::get()->getTextBoxX(), sf::Vector2f(mWorld.getBlockSize(), screenWidth));
     mElapsed = 0.0f;
@@ -54,12 +55,13 @@ void Game::handleInput()
 void Game::update()
 {
     mWindow.update();
+	mPointDisplay.update();
 
     float timestep = 1.0f / mSnake.getSpeed();
     if (mElapsed >= timestep)
     {
         mSnake.tick();
-        mWorld.update(mSnake);
+        mWorld.update(mSnake, mPointDisplay);
         mElapsed -= timestep;
 
         if (mSnake.hasLost())
@@ -82,8 +84,11 @@ void Game::render()
     mWindow.beginDraw();
 
     mWorld.render(*mWindow.getRenderWindow());
+
     mSnake.render(*mWindow.getRenderWindow());
     mWindow.draw(mBackground);
+	mPointDisplay.render(*mWindow.getRenderWindow());
+
     mTextbox.render(*mWindow.getRenderWindow());
 
     mWindow.endDraw();

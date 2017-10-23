@@ -37,5 +37,6 @@ private:
 
     World mWorld;
     Snake mSnake;
-    Textbox mTextbox;    
+    Textbox mTextbox;
+	PointDisplay mPointDisplay;
 };

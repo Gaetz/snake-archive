@@ -40,12 +40,13 @@ const sf::Vector2i Snake::getPosition()
     return (!mSnakeBody.empty() ? mSnakeBody.front().position : sf::Vector2i(1, 1));
 }
 
-void Snake::increaseScore(bool bonus)
+void Snake::increaseScore(bool bonus, PointDisplay& display)
 {
 	if (!bonus) {
 		mBonusMultiplier = 1;
 	}
-    mScore += 1 * mBonusMultiplier;
+	display.setup(mBonusMultiplier, 30, 200, sf::Vector2f(getPosition().x * Constants::get()->getBlockSize(), getPosition().y  * Constants::get()->getBlockSize()));
+    mScore += mBonusMultiplier;
 	if (bonus) {
 		++mBonusMultiplier;
 	}

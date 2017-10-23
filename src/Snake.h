@@ -3,6 +3,7 @@
 #include <vector>
 #include "Textbox.h"
 #include "Constants.h"
+#include "PointDisplay.h"
 
 struct SnakeSegment
 {
@@ -33,7 +34,7 @@ class Snake
     const sf::Vector2i getPosition();
 	const int getLives();
 	const int getScore();
-    void increaseScore(bool bonus);
+    void increaseScore(bool bonus, PointDisplay& display);
     bool hasLost();
 
     /// Returns the direciton the snake is facing

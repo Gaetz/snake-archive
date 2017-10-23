@@ -13,7 +13,7 @@ public:
   int getBlockSize();
 
   /// Update
-  void update(Snake &player);
+  void update(Snake &player, PointDisplay& pointDisplay);
 
   /// Make an apple appear
   void respawnApple(Snake& player);
