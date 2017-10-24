@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://img/tileset_0.png" type="Texture" id=1]
+[ext_resource path="res://img/tileset_1.png" type="Texture" id=2]
+[ext_resource path="res://img/tileset_2.png" type="Texture" id=3]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Black" type="Sprite" parent="."]
+
+texture = ExtResource( 1 )
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Black"]
+
+transform/pos = Vector2( 10, 10 )
+transform/scale = Vector2( 0.3125, 0.3125 )
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Black/StaticBody2D"]
+
+transform/pos = Vector2( -9.53674e-07, -9.53674e-07 )
+transform/scale = Vector2( 3.2, 3.2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Grey" type="Sprite" parent="."]
+
+transform/pos = Vector2( 20, 0 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Grey"]
+
+transform/pos = Vector2( 10, 10 )
+transform/scale = Vector2( 0.3125, 0.3125 )
+input/pickable = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grey/StaticBody2D"]
+
+transform/scale = Vector2( 3.2, 3.2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Green" type="Sprite" parent="."]
+
+transform/pos = Vector2( 40, 0 )
+texture = ExtResource( 3 )
+centered = false
+
+
