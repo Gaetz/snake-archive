@@ -37,9 +37,16 @@ private:
     int mHiScore;
     sf::RectangleShape mBackground;
 	sf::Music mMusic;
+	sf::SoundBuffer mSoundTurn;
+	sf::SoundBuffer mSoundCollision;
+	sf::SoundBuffer mSoundHiScore;
+	sf::Sound mSound;
 
     World mWorld;
     Snake mSnake;
     Textbox mTextbox;
 	PointDisplay mPointDisplay;
+
+	/// Play sound when player turns
+	void playTurnSound();
 };

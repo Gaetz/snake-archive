@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <vector>
+#include <iostream>
 #include "Textbox.h"
 #include "Constants.h"
 #include "PointDisplay.h"
@@ -88,7 +90,6 @@ class Snake
 
     /// Losing state
     bool mLost;
-
     /// Log system
     Textbox* mLog;
 
@@ -98,6 +99,15 @@ class Snake
 	/// Score multiplier when eating successive bonus apples
 	int mBonusMultiplier;
 
+	sf::SoundBuffer mSoundGrey;
+	sf::SoundBuffer mSoundBlack0;
+	sf::SoundBuffer mSoundBlack1;
+	sf::SoundBuffer mSoundBlack2;
+	sf::Sound mSound;
+
     /// Checking for collisions
     void checkCollision();
+
+	/// Play a sound
+	void playSound(sf::SoundBuffer& sb);
 };
